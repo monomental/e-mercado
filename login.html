@@ -14,7 +14,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
+    html,
+    body {
       height: 100%;
     }
 
@@ -38,16 +39,30 @@
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main" class="pb-5">
+    <div class="container">
+      <div class="row">
+        <form onsubmit="login()" class="form-signin">
+          <h1 class="h3 mb-3 font-weight-normal">Inicia sesión</h1>
+          <label for="inputEmail" class="sr-only">Dirección de correo electrónico</label>
+          <input type="text" id="inputEmail" class="form-control" placeholder="Correo electrónico" required="" autofocus=""
+            kl_ab.original_type="email">
+          <label for="inputPassword" class="sr-only">Contraseña</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Recordarme
+            </label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="button">Ingresar</button>
+          <input class="btn btn-lg btn-primary btn-block" type="submit" value="Ingresar">          
+          <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+        </form>
+      </div>
     </div>
-  </div>
-
+  </main>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
+
 </html>

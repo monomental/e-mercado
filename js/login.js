@@ -4,3 +4,8 @@
 document.addEventListener("DOMContentLoaded", function(e){
 
 });
+
+function login()
+{
+    location.href = "../index.html";
+} 
