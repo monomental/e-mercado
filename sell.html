@@ -30,13 +30,19 @@
     <link href="css/dropzone.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
+    <nav class="site-header sticky-top py-1 bg-dark navbar-dark">
         <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+            <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
             <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
             <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
             <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+
+            <form id="user-info" class="form-inline my-2 my-lg-0 d-none">
+              <p id="user" class="navbar-text m-0"> </p>
+              <button id="salir" class="btn btn-light btn-sm">Salir</button>
+              <!-- Botón cambiado con clases css de boostrap 4.3-->
+            </form>
         </div>
     </nav>
       <div class="container">
