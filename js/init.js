@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   if (userLogged) {
     userLogged = JSON.parse(userLogged);
     user.innerText = user.innerText + 'Usuario logueado: ' + userLogged.email;
-    // uso clases de boostrap para mostrar
+    // uso clases de boostrap para mostrar el formulario que tiene el correo y el btn salir
     userInfoForm.classList.remove("d-none");
     userInfoForm.classList.add('d-inline-block');
 
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       localStorage.removeItem('User-Logged');
       // agrego una variable al local storage para saber que el usuario cerró sesión
       localStorage.setItem('Logout', 'logout');
+      // redirijo al formulario de inicio de sesión
       window.location = 'index.html';
     })
   }

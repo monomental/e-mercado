@@ -32,7 +32,7 @@ function showProductsList() {
     for (let i = 0; i < currentProductsArray.length; i++) {
         let product = currentProductsArray[i];
 
-
+        // se fija que el precio de producto esté entre el mínimo y máximo filtrado
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))) {
 
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             productsArray = resultObj.data;
             //Muestro los productos ordenados
-            showProductsList(productsArray);
+           // showProductsList(productsArray);
             sortAndShowProducts(ORDER_BY_PROD_COST_DESC, productsArray)
         }
     });
@@ -118,8 +118,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
+        
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
