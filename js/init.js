@@ -45,26 +45,28 @@ var getJSONData = function (url) {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
   let userLogged = localStorage.getItem('User-Logged');
-  let infoUser = document.getElementById("user-info");
+  let userInfoForm = document.getElementById("user-info");
   let user = document.getElementById("user");
   let btnSalir = document.getElementById('salir');
-
+// si usuario inició sesión, (datos cargados en el localStorage) muestro el mail
   if (userLogged) {
     userLogged = JSON.parse(userLogged);
     user.innerText = user.innerText + 'Usuario logueado: ' + userLogged.email;
-    infoUser.classList.remove("d-none");
-    infoUser.classList.add('d-inline-block');
+    // uso clases de boostrap para mostrar
+    userInfoForm.classList.remove("d-none");
+    userInfoForm.classList.add('d-inline-block');
 
   }
-  else if (infoUser) {
+  // si no hay una sesion iniciada y es una página interna (tiene el form user-info) redirijo al formulario de inicio de sesión
+  else if (userInfoForm) {
     window.location = 'index.html';
   }
 
   if (btnSalir) {
     btnSalir.addEventListener('click', function () {
       localStorage.removeItem('User-Logged');
+      // agrego una variable al local storage para saber que el usuario cerró sesión
       localStorage.setItem('Logout', 'logout');
-
       window.location = 'index.html';
     })
   }

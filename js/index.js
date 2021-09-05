@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         infoMessage.innerText = 'Sesión cerrada'
 
         localStorage.removeItem('Logout');
+        // me fijo si hay un usuario logeado, en ese caso lo redirijo al home para que no entre al formulario de inicio de sesión
     }else if(localStorage.getItem('User-Logged')){
         window.location = 'home.html';
     }
