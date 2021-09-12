@@ -26,6 +26,11 @@ function sortProducts(criteria, array) {
     return result;
 }
 
+function showProduct(name){
+    localStorage.setItem("product",JSON.stringify({productName: name}));
+    window.location = 'product-info.html'
+}
+
 function showProductsList() {
 
     let htmlContentToAppend = "";
@@ -37,8 +42,9 @@ function showProductsList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))) {
 
             htmlContentToAppend += `
-         <div class="list-group-item list-group-item-action">
-            <div class="row">
+            <a href="#" onclick="showProduct('`+ product.name +`')" class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action">
+             <div class="row">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
                 </div>
@@ -60,8 +66,9 @@ function showProductsList() {
 
 
                 </div>
-            </div>
-         </div>
+              </div>
+             </div>
+            </a>
          `
         }
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
@@ -69,16 +76,16 @@ function showProductsList() {
     }
 }
 
-function sortAndShowProducts(sortCriteria, productsArray){
+function sortAndShowProducts(sortCriteria, productsArray) {
     currentSortCriteria = sortCriteria;
 
-    if(productsArray != undefined){
+    if (productsArray != undefined) {
         currentProductsArray = productsArray;
     }
 
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
-    
+
     showProductsList();
 }
 
@@ -90,24 +97,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             productsArray = resultObj.data;
             //Muestro los productos ordenados
-           // showProductsList(productsArray);
+            // showProductsList(productsArray);
             sortAndShowProducts(ORDER_BY_PROD_COST_DESC, productsArray)
         }
     });
 
-    document.getElementById("sortSold").addEventListener("click", function(){
+    document.getElementById("sortSold").addEventListener("click", function () {
         sortAndShowProducts(ORDER_DESC_BY_SOLD_COUNT);
     });
 
-    document.getElementById("sortByCostDesc").addEventListener("click", function(){
+    document.getElementById("sortByCostDesc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_BY_PROD_COST_DESC);
     });
 
-    document.getElementById("sortByCostAsc").addEventListener("click", function(){
+    document.getElementById("sortByCostAsc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_BY_PROD_COST_ASC);
     });
 
-    document.getElementById("clearRangeFilter").addEventListener("click", function(){
+    document.getElementById("clearRangeFilter").addEventListener("click", function () {
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
 
@@ -117,22 +124,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductsList();
     });
 
-    document.getElementById("rangeFilterCount").addEventListener("click", function(){
-        
+    document.getElementById("rangeFilterCount").addEventListener("click", function () {
+
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
-        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
+        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0) {
             minCount = parseInt(minCount);
         }
-        else{
+        else {
             minCount = undefined;
         }
 
-        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0){
+        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0) {
             maxCount = parseInt(maxCount);
         }
-        else{
+        else {
             maxCount = undefined;
         }
 

@@ -1,0 +1,15 @@
+{
+    "name": "Fiat Way",
+    "description": "Es un vehículo osado y singuar en sus conceptos y sus líneas. Desde su llegada sorprendío por su diseño y funcionalidades",
+    "cost": 14500,
+    "currency": "USD",
+    "soldCount": 52,
+    "category": "Autos",
+    "images": [
+        "img/prod2.jpg",
+        "img/prod2_1.jpg",
+        "img/prod2_2.jpg",
+        "img/prod2_3.jpg",
+        "img/prod2_4.jpg"
+    ]
+}
