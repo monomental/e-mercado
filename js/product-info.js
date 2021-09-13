@@ -50,4 +50,26 @@ function showCar(car){
             productCurrencyaHTML.innerHTML = car.currency;
             productSoldCountHTML.innerHTML = car.soldCount;
             productCategoryHTML.innerHTML = car.category;
+
+            //Muestro las imagenes en forma de galería
+            showImagesGallery(car.images);
+}
+
+function showImagesGallery(array){
+
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < array.length; i++){
+        let imageSrc = array[i];
+
+        htmlContentToAppend += `
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+            </div>
+        </div>
+        `
+
+        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+    }
 }
