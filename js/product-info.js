@@ -11,6 +11,16 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (result) {
+        if (result.status === "ok") {
+            productArray = result.data;
+            showComment(productArray)                               
+        }
+    })
+
+});
+
 function getProductURL(){
     let name = JSON.parse(localStorage.getItem('product')).productName;
     let URL;
@@ -31,6 +41,20 @@ function getProductURL(){
     } 
 
     return URL;
+}
+
+var commentArray = [];
+
+function showComment(productArray){
+    let htmlContentToAppend = "";
+    for (let i = 0; i < productArray.length; i++) {
+        let comment = productArray[i];
+        htmlContentToAppend += `'`+ comment.description +`' <br>`
+                
+        document.getElementById("comentDescrip").innerHTML = htmlContentToAppend;
+
+    }
+
 }
 
 var car;
