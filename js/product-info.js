@@ -49,12 +49,54 @@ function showComment(productArray){
     let htmlContentToAppend = "";
     for (let i = 0; i < productArray.length; i++) {
         let comment = productArray[i];
-        htmlContentToAppend += `'`+ comment.description +`' <br>`
+        htmlContentToAppend += `
+        <a href="#" onclick="showProduct('`+ comment.user +`')" class="list-group-item list-group-item-action">
+            <div class="list-group-item list-group-item-action">
+         <div class="row">
+            <div class="col-2">
+            `+ loadStars(comment.score) +`
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">`+ comment.user + `</h5>
+                            <small class="text-muted">` + comment.dateTime +  `</small>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">   
+                        <p> ` + comment.description + ` </p>
+                    </div>                       
+                </div>    
+
+
+            </div>
+          </div>
+         </div>
+        </a>
+     `
                 
         document.getElementById("comentDescrip").innerHTML = htmlContentToAppend;
 
     }
 
+}
+
+function loadStars(score){
+    let total = 5;
+    let result = "";
+    for(let i = 0; i < total; i++){
+        if(score > 0){
+            result += '<span class="fa fa-star checked"></span>';
+            score --;
+        }else{
+            result += '<span class="fa fa-star"></span>';
+        } 
+    }
+    return result; 
 }
 
 var car;
