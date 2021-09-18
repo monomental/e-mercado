@@ -70,15 +70,70 @@
         </dd>
         <br>
         <div>
-         <dt>Comentarios</dt>
-         <dd>
-          <p id="comentDescrip"></p>
-         </dd>
+          <dt>Comentarios</dt>
+          <dd>
+            <p id="comentDescrip"></p>
+          </dd>
+        </div>
+        <hr>
+        <div>
+          <form>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="commentUserName">Nombre</label>
+                <input type="text" class="form-control" id="commentUserName" placeholder="Nombre">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="commentText">Comentario</label>
+                <textarea class="form-control" id="commentText" rows="3" placeholder="Escribe un comentario"></textarea>
+
+              </div>
+            </div>
+            <div>
+              <label for="">Calificación</label>
+              <div class="star-rating d-md-inline-block">
+                <input id="star-5" type="radio" name="rating" value="5" />
+                <label for="star-5" title="5 stars">
+                  <i class="active fa fa-star"></i>
+                </label>
+
+                <input id="star-4" type="radio" name="rating" value="4" />
+                <label for="star-4" title="4 stars">
+                  <i class="active fa fa-star"></i>
+                </label>
+
+                <input id="star-3" type="radio" name="rating" value="3" />
+                <label for="star-3" title="3 stars">
+                  <i class="active fa fa-star"></i>
+                </label>
+
+                <input id="star-2" type="radio" name="rating" value="2" />
+                <label for="star-2" title="2 stars">
+                  <i class="active fa fa-star"></i>
+                </label>
+
+                <input id="star-1" type="radio" name="rating" value="1" checked />
+                <label for="star-1" title="1 star">
+                  <i class="active fa fa-star"></i>
+                </label>
+
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col offset-md-11">
+                <button id="submitComment" class="btn btn-primary" type="button">Comentar</button>
+              </div>
+            </div>
+            <div class="alert alert-info d-none" role="alert" id="infoMessage">
+            </div>
+          </form>
         </div>
       </dl>
-         <a type="button" class="btn btn-light btn-lg btn-block" href="categories.html">Ver categorías</a>
+      <a type="button" class="btn btn-light btn-lg btn-block" href="categories.html">Ver categorías</a>
     </div>
-   
+
   </div>
   <footer class="text-muted">
     <div class="container">
