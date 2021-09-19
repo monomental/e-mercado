@@ -93,7 +93,6 @@ function getProductURL() {
 }
 
 var commentArray = [];
-var newCommentArray = [];
 
 function showComment(commentArray) {
     let htmlContentToAppend = "";
@@ -167,7 +166,7 @@ function showCar(car) {
     productSoldCountHTML.innerHTML = car.soldCount;
     productCategoryHTML.innerHTML = car.category;
 
-    //Muestro las imagenes en forma de galería
+    //Muestro las imagenes
     showImagesGallery(car.images);
 }
 
