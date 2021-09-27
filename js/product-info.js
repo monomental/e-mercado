@@ -1,3 +1,6 @@
+var commentArray = [];
+var relatedProductsArray = [];
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -28,7 +31,52 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showMessage('El comentario se agregó con éxito');
     });
 
+
+
 });
+
+function filterRelatedProducts(indexArray) {
+    let relatedProducts = [];
+    for (let i = 0; i < indexArray.length; i++) {
+        relatedProducts.push(relatedProductsArray[indexArray[i]]);
+    }
+    return relatedProducts;
+}
+
+function showRelatedProducts(indexArray) {
+    getJSONData(PRODUCTS_URL).then(function (result) {
+        if (result.status === "ok") {
+            relatedProductsArray = result.data;
+            if (relatedProductsArray && relatedProductsArray.length > 0) {
+                let productsToShow = filterRelatedProducts(indexArray);
+                showHTMLRelatedProducts(productsToShow);
+            }else{
+                showNoRelatedProductsMessage();
+            }
+        }
+    });
+}
+
+function showNoRelatedProductsMessage(){
+    document.getElementById("relatedProducts").innerHTML = "No hay productos que mostrar.";
+}
+
+function showHTMLRelatedProducts(productsToShow) {
+    let htmlContentToAppend = "";
+    for (let i = 0; i < productsToShow.length; i++) {
+        let product = productsToShow[i];
+        htmlContentToAppend += `
+         <div class="card col-3" style="width: 18rem;">
+          <img class="card-img-top" src="` + product.imgSrc + `" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">`+ product.name + `</h5>
+            <p class="card-text">` + product.currency + ` ` + product.cost + `</p>
+          </div>
+        </div>`
+        
+    }
+    document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+}
 
 function showMessage(message) {
     let infoMessage = document.getElementById('infoMessage');
@@ -39,7 +87,7 @@ function showMessage(message) {
     setTimeout(hideMessage, 5000);
 }
 
-function hideMessage(){
+function hideMessage() {
     infoMessage.classList.remove('d-block');
     infoMessage.classList.add('d-none');
 }
@@ -92,7 +140,7 @@ function getProductURL() {
     return URL;
 }
 
-var commentArray = [];
+
 
 function showComment(commentArray) {
     let htmlContentToAppend = "";
@@ -168,6 +216,12 @@ function showCar(car) {
 
     //Muestro las imagenes
     showImagesGallery(car.images);
+
+    if (car.relatedProducts) {
+        showRelatedProducts(car.relatedProducts);
+    }else{
+        showNoRelatedProductsMessage();
+    }
 }
 
 function showImagesGallery(array) {
