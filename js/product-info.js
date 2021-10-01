@@ -61,6 +61,11 @@ function showNoRelatedProductsMessage(){
     document.getElementById("relatedProducts").innerHTML = "No hay productos que mostrar.";
 }
 
+function showProduct(name){
+    localStorage.setItem("product",JSON.stringify({productName: name}));
+    window.location = 'product-info.html'
+}
+
 function showHTMLRelatedProducts(productsToShow) {
     let htmlContentToAppend = "";
     for (let i = 0; i < productsToShow.length; i++) {
@@ -71,6 +76,7 @@ function showHTMLRelatedProducts(productsToShow) {
           <div class="card-body">
             <h5 class="card-title">`+ product.name + `</h5>
             <p class="card-text">` + product.currency + ` ` + product.cost + `</p>
+            <a href="#" onclick="showProduct('`+ product.name +`')" class="btn btn-primary">Ver producto</a>
           </div>
         </div>`
         
