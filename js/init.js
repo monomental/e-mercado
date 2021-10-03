@@ -57,8 +57,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
     userLogged = JSON.parse(userLogged);
     user.innerText = user.innerText + 'Usuario logueado: ' + userLogged.email;
     // uso clases de boostrap para mostrar el formulario que tiene el correo y el btn salir
-    userInfoForm.classList.remove("d-none");
-    userInfoForm.classList.add('d-inline-block');
+   // userInfoForm.classList.remove("d-none");
+   // userInfoForm.classList.add('d-inline-block');
 
   }
   // si no hay una sesion iniciada y es una página interna (tiene el form user-info) redirijo al formulario de inicio de sesión
