@@ -232,19 +232,19 @@ function showCar(car) {
 
 function showImagesGallery(array) {
 
-    let htmlContentToAppend = "";
+    let htmlContentToAppend = `
+        <div class="carousel-item active">
+            <img src="` + array[0] + `" class="d-block w-100" alt="Texto alternativo a la imagen">
+        </div> `;
 
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 1; i < array.length; i++) {
         let imageSrc = array[i];
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-
+        <div class="carousel-item">
+              <img src="` + imageSrc + `" class="d-block w-100" alt="Texto alternativo a la imagen">
+            </div>        
+        `  
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
