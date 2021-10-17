@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,8 +42,9 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
 
-      <div class="dropdown"> 
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" id="carrito" href="cart.html">Ver mi carrito</a>
@@ -60,14 +61,76 @@
 
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="text-center p-4">
+    <h2>Carrito</h2>
+  </div>
+  <div class="row">
+    <div class="list-group" id="product-list-container">
     </div>
   </div>
+  <hr class="my-3">
+  <div class="container p-1">
+    <div class="container mt-1">
+      <form class="needs-validation" id="sell-info">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="direction">Dirección de envío</label>
+            <input type="text" class="form-control" id="direction" placeholder="" value="" >
+            <div class="invalid-feedback">
+              Ingresa una dirección de envío
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="country">País</label>
+            <input type="text" class="form-control" id="country" placeholder="" value="" >
+            <div class="invalid-feedback">
+              Ingresa un país
+            </div>
+          </div>
+        </div>
+
+      <hr class="mb-4">
+      <h5 class="mb-3">Tipo de envío</h5>
+      <div class="d-block my-3">
+        <div class="custom-control custom-radio">
+          <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+          <label class="custom-control-label" for="goldradio">Premium (2-5 días) - Costo del 15% sobre el
+            subtotal</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="premiumradio">Express (5-8 días) - Costo del 7% sobre el
+            subtotal</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="standardradio">Standard (12 a 15 días) - Costo del 5% sobre el
+            subtotal</label>
+         
+        </div>
+      </div>
+    
+
+      <hr class="my-3">
+      <dl>
+        <div class="row">
+          <div class="col align-self-end">
+            <h3>TOTAL ($)</h3>
+            <dd>
+              <h5 id="total"></h5>
+            </dd>
+          </div>
+        </div>
+      </dl>
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg" type="submit">Comprar</button>
+    </form>
+    </div>
+  </div>
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

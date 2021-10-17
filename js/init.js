@@ -10,6 +10,7 @@ const PRODUCT1_INFO_URL = "https://monomental.github.io/e-mercado/json/producto1
 const PRODUCT2_INFO_URL = "https://monomental.github.io/e-mercado/json/producto2.json";
 const PRODUCT3_INFO_URL = "https://monomental.github.io/e-mercado/json/producto3.json";
 const PRODUCT4_INFO_URL = "https://monomental.github.io/e-mercado/json/producto4.json";
+const CART_PRODUCTS = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 
 var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
