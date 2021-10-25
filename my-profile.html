@@ -59,14 +59,60 @@
       </form>-->
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div class="text-center p-4">
+    <h2>Mi Perfil</h2>
   </div>
+  <div class="container p-5">
+  <form class="needs-validation" novalidate>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="nombre1">Primer nombre</label>
+        <input type="text" class="form-control" id="nombre1" value="" required>
+        <div class="valid-tooltip">
+          Listo!
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="nombre2">Segundo nombre</label>
+        <input type="text" class="form-control" id="nombre2" value="" required>
+        <div class="valid-tooltip">
+          Listo!
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellido1">Primer apellido</label>
+        <input type="text" class="form-control" id="apellido1" value="" required>
+        <div class="valid-tooltip">
+          Listo!
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellido2">Segundo apellido</label>
+        <input type="text" class="form-control" id="apellido2" value="" required>
+        <div class="valid-tooltip">
+          Listo!
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="edad">Edad</label>
+        <input type="number" class="form-control" id="edad" value="" required>
+        <div class="valid-tooltip">
+          Por favor, coloca tu edad.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="emailProfile">Email address</label>
+        <input type="email" class="form-control" id="emailProfile" placeholder="name@example.com" value="" required>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="btnSave" type="submit">Guardar</button>
+    <div class="alert alert-danger d-none" role="alert" id="errorMessage2">
+    </div>
+    <div class="alert alert-info d-none" role="alert" id="infoMessage2">
+    </div>
+  </form>
+</div>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

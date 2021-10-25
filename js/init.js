@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   if (btnSalir) {
     btnSalir.addEventListener('click', function () {
       localStorage.removeItem('User-Logged');
+      localStorage.removeItem('User');
       // agrego una variable al local storage para saber que el usuario cerró sesión
       localStorage.setItem('Logout', 'logout');
       // redirijo al formulario de inicio de sesión
