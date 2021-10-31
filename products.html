@@ -16,16 +16,37 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark navbar-dark">
+
+  <nav class="navar navbar-expand-md site-header sticky-top py-1 bg-dark navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-     
-      <div class="dropdown"> 
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+      <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link py-2" href="home.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link py-2" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link py-2" href="products.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link py-2" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link py-2" href="cart.html">Mi carrito</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" id="carrito" href="cart.html">Ver mi carrito</a>
@@ -33,12 +54,7 @@
           <a class="dropdown-item" id="salir" href="#">Cerrar sesión</a>
         </div>
       </div>
-      <!--
-      <form id="user-info" class="form-inline my-2 my-lg-0 d-none">
-        <p id="user" class="navbar-text m-0"> </p>
-        <button id="salir" class="btn btn-light btn-sm">Salir</button>
-         Botón cambiado con clases css de boostrap 4.3
-      </form>-->
+
     </div>
   </nav>
   <main role="main" class="pb-5">
@@ -46,50 +62,49 @@
       <h2>Productos</h2>
     </div>
     <div class="container">
-        <div class="row">
-          <div class="col text-right">
-            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-              <label class="btn btn-light" id="sortSold">
-                <input type="radio" name="options" autocomplete="off" checked>Más Relevantes
-              </label>
-              <label class="btn btn-light" id="sortByCostDesc">
-                <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Precio
-              </label>
-              <label class="btn btn-light" id="sortByCostAsc">
-                <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-up mr-1"></i>Precio
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-end">
-          <div class="col-md-6"></div>
-          <div class="col-md-6 col-sm-12 mb-1 container">
-            <div class="row container p-0 m-0">
-              <div class="col">
-                <p class="font-weight-normal text-right my-2">Precio.</p>
-              </div>
-              <div class="col">
-                <input class="form-control" type="number" min=0 placeholder="min." id="rangeFilterCountMin">
-              </div>
-              <div class="col">
-                <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
-              </div>
-              <div class="col-3 p-0">
-                <div class="btn-group" role="group">
-                  <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-                  <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="list-group" id="cat-list-container">
-          </div>
-        </div>
-      
       <div class="row">
-        <div class="list-group" id="product-list-container">
+        <div class="col text-right">
+          <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+            <label class="btn btn-light" id="sortSold">
+              <input type="radio" name="options" autocomplete="off" checked>Más Relevantes
+            </label>
+            <label class="btn btn-light" id="sortByCostDesc">
+              <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Precio
+            </label>
+            <label class="btn btn-light" id="sortByCostAsc">
+              <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-up mr-1"></i>Precio
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 col-sm-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-right my-2">Precio.</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" min=0 placeholder="min." id="rangeFilterCountMin">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="list-group" id="cat-list-container">
+        </div>
+      </div>
+      <div class="album py-5 bg-light">
+        <div class="row justify-content-md-center" id="product-list-container">
         </div>
       </div>
     </div>

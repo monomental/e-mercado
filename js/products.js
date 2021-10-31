@@ -26,8 +26,8 @@ function sortProducts(criteria, array) {
     return result;
 }
 
-function showProduct(name){
-    localStorage.setItem("product",JSON.stringify({productName: name}));
+function showProduct(name) {
+    localStorage.setItem("product", JSON.stringify({ productName: name }));
     window.location = 'product-info.html'
 }
 
@@ -42,33 +42,19 @@ function showProductsList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))) {
 
             htmlContentToAppend += `
-            <a href="#" onclick="showProduct('`+ product.name +`')" class="list-group-item list-group-item-action">
-                <div class="list-group-item list-group-item-action">
-             <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-1">`+ product.name + `</h4>
-                                <small class="text-muted">` + product.currency + ` ` + product.cost + `</small>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col">   
-                            <p> ` + product.description + ` </p>
-                        </div>                       
-                    </div>    
-
-
-                </div>
-              </div>
+                
+             
+             <div class"col-md-2">
+             <div class="card col" style="width: 16rem;">
+             <img class="card-img-top" src="` + product.imgSrc + `" alt="Card image cap">
+             <div class ="card-body">
+             <h5 class ="card-title">`+ product.name + `</h5>
+             <p class ="card-text">` + product.currency + ` ` + product.cost + `</p>
+             <a href="#" onclick="showProduct('`+ product.name +`')" class ="btn btn-primary">Ver producto</a>
              </div>
-            </a>
+         </div>
+              </div> 
+              
          `
         }
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
