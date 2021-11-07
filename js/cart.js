@@ -32,9 +32,9 @@ function calcShipping() {
     if (premium.checked) {
         return 0.15
     } else if (express.checked) {
-        return 0.7
+        return 0.07
     } else if (standard.checked) {
-        return 0.5
+        return 0.05
     }
 }
 
