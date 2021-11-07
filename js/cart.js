@@ -12,22 +12,54 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
-
-
-function calcTotal(){
-    let total = document.getElementsByName("sub");
-    let sub = 0;
-    for (let i = 0; i < total.length; i++ ){
-      sub += parseInt(total[i].innerHTML);
+function disableModal(){
+    let creditCar = document.getElementById('creditCar');
+    let creditCarNumber = document.getElementById('creditCarNumber');
+    let bankNumber = document.getElementById('bankNumber');
+    if(creditCar.checked){
+        creditCarNumber.disabled = false;
+        bankNumber.disabled = true;
+    }else{
+        creditCarNumber.disabled = true;
+        bankNumber.disabled = false;
     }
-    document.getElementById("total").innerHTML = sub;
 }
 
-function subTotal(cost, i) { 
+function calcShipping() {
+    let premium = document.getElementById('premium');
+    let express = document.getElementById('express');
+    let standard = document.getElementById('standard');
+    if (premium.checked) {
+        return 0.15
+    } else if (express.checked) {
+        return 0.7
+    } else if (standard.checked) {
+        return 0.5
+    }
+}
+
+
+function calcTotal() {
+    let shipping = 0;
+    let total = 0;
+    let subtotal = document.getElementsByName("sub");
+    let sub = 0;
+    for (let i = 0; i < subtotal.length; i++) {
+        sub += parseInt(subtotal[i].innerHTML);
+    }
+    document.getElementById("subtotal").innerHTML = sub;
+    shipping = calcShipping();
+    shippingCost = sub * shipping;
+    document.getElementById("shipping").innerHTML = shippingCost;
+    total = sub + shippingCost;
+    document.getElementById("total").innerHTML = total;
+}
+
+function subTotal(cost, i) {
     let count = parseInt(document.getElementById(`productCountInput${i}`).value);
-    let total = count*cost;
+    let total = count * cost;
     document.getElementById(`sub${i}`).innerHTML = total;
-    calcTotal(); 
+    calcTotal();
 }
 
 function showCart(productArray) {
@@ -35,8 +67,8 @@ function showCart(productArray) {
     for (let i = 0; i < productArray.length; i++) {
         let product = productArray[i];
         let pesosCost = product.unitCost;
-        if (product.currency == "USD"){
-            pesosCost = product.unitCost*USDvalue;
+        if (product.currency == "USD") {
+            pesosCost = product.unitCost * USDvalue;
         }
         let sub = product.count * pesosCost;
         htmlContentToAppend += `
