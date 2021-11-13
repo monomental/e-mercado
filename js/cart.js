@@ -10,20 +10,50 @@ document.addEventListener("DOMContentLoaded", function (e) {
             calcTotal();
         }
     });
+
+
+
 });
 
-function disableModal(){
+btnBuy.addEventListener('click', function (e) {
+
+
+    function camposCompletos() {
+        return street.value && homeNumber.value && corner.value && (creditCarNumber.value || bankNumber.value);
+    }
+
+    if (camposCompletos()) {
+        infoMessage3.classList.remove('d-none');
+        infoMessage3.classList.add('d-block');
+        infoMessage3.innerText = 'COMPRA REALIZADA CON ÉXITO'
+        e.preventDefault();
+        e.stopPropagation();
+
+
+    } else {
+        errorMessage3.classList.remove('d-none');
+        errorMessage3.classList.add('d-block');
+        errorMessage3.innerText = "DEBE COMPLETAR TODOS LOS DATOS!";
+    }
+});
+
+
+
+function disableModal() {
     let creditCar = document.getElementById('creditCar');
     let creditCarNumber = document.getElementById('creditCarNumber');
     let bankNumber = document.getElementById('bankNumber');
-    if(creditCar.checked){
+    if (creditCar.checked) {
         creditCarNumber.disabled = false;
         bankNumber.disabled = true;
-    }else{
+    } else {
         creditCarNumber.disabled = true;
         bankNumber.disabled = false;
     }
 }
+
+
+
 
 function calcShipping() {
     let premium = document.getElementById('premium');
