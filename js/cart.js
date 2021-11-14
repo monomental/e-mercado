@@ -19,7 +19,7 @@ btnBuy.addEventListener('click', function (e) {
 
 
     function camposCompletos() {
-        return street.value && homeNumber.value && corner.value && (creditCarNumber.value || bankNumber.value);
+        return street.value && homeNumber.value && corner.value && country.value && (creditCarNumber.value || bankNumber.value);
     }
 
     if (camposCompletos()) {
@@ -51,8 +51,6 @@ function disableModal() {
         bankNumber.disabled = false;
     }
 }
-
-
 
 
 function calcShipping() {

@@ -52,12 +52,6 @@
           <a class="dropdown-item" id="salir" href="#">Cerrar sesión</a>
         </div>
       </div>
-      <!--
-      <form id="user-info" class="form-inline my-2 my-lg-0 d-none">
-        <p id="user" class="navbar-text m-0"> </p>
-        <button id="salir" class="btn btn-light btn-sm">Salir</button>
-         Botón cambiado con clases css de boostrap 4.3
-      </form>-->
 
     </div>
   </nav>
@@ -94,7 +88,14 @@
             <label for="corner">Esquina</label>
             <input type="text" class="form-control" id="corner" placeholder="" value="" required>
             <div class="invalid-feedback">
-              Ingresa un nombre de la esquina para el envío
+              Ingresa un nombre de esquina para el envío
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="country">País</label>
+            <input type="text" class="form-control" id="country" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Ingresa el país en el que vives
             </div>
           </div>
         </div>
@@ -104,8 +105,7 @@
         <h5 class="mb-3">Tipo de envío</h5>
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
-            <input id="premium" name="publicationType" type="radio" class="custom-control-input" checked
-              onchange="calcTotal()" required="">
+            <input id="premium" name="publicationType" type="radio" class="custom-control-input" checked onchange="calcTotal()" required="">
             <label class="custom-control-label" for="premium">Premium (2-5 días) - Costo del 15% sobre el
               subtotal</label>
           </div>
@@ -128,12 +128,12 @@
         <h5 class="mb-3">Forma de pago</h5>
         <div class="d-block my-3">
 
-          <!-- Button trigger modal -->
+         
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Seleccione forma de pago
           </button>
 
-          <!-- Modal -->
+          
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -152,7 +152,7 @@
                         <label class="custom-control-label" for="creditCar">Tarjeta de crédito</label>
                         <div class="col">
                           <label for="direction">Número de tarjeta</label>
-                          <input type="text" class="form-control" id="creditCarNumber" placeholder="" value="" disabled required>
+                          <input type="text" class="form-control" id="creditCarNumber" placeholder="" value="" disabled required minlength="16" maxlength="16">
                           <div class="invalid-feedback">
                             Ingresa un número de tarjeta
                           </div>
@@ -165,7 +165,7 @@
                         <label class="custom-control-label" for="bank">Transferencia bancaria</label>
                         <div class="col">
                           <label for="direction">Número de cuenta</label>
-                          <input type="text" class="form-control" id="bankNumber" placeholder="" value="" disabled required>
+                          <input type="text" class="form-control" id="bankNumber" placeholder="" value="" disabled required minlength="14" maxlength="14">
                           <div class="invalid-feedback">
                             Ingresa un número de cuenta
                           </div>
@@ -176,8 +176,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary" id="btnSaveModal">Guardar cambios</button>
+                <button type="submit" class="btn btn-primary" id="btnSaveModal">Cerrar</button>
               </div>
             </div>
           </div>
